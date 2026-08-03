@@ -19,12 +19,16 @@ cd noctalia-spotify-lyrics-widget
 
 # 1. Install Dependencies
 sudo pacman -S --noconfirm playerctl
-pip install syncedlyrics
 
 # 2. Set up the Background Daemon
 mkdir -p ~/.local/bin
 cp spotify_lyrics_daemon.py ~/.local/bin/
 chmod +x ~/.local/bin/spotify_lyrics_daemon.py
+
+# Create a Python virtual environment to avoid PEP-668 system package errors
+mkdir -p ~/.local/share/noctalia-lyrics-daemon
+python3 -m venv ~/.local/share/noctalia-lyrics-daemon/venv
+~/.local/share/noctalia-lyrics-daemon/venv/bin/pip install syncedlyrics
 
 mkdir -p ~/.config/systemd/user
 cat << 'EOF' > ~/.config/systemd/user/noctalia-lyrics.service
@@ -33,7 +37,7 @@ Description=Noctalia Lyrics Daemon
 After=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/python3 %h/.local/bin/spotify_lyrics_daemon.py
+ExecStart=%h/.local/share/noctalia-lyrics-daemon/venv/bin/python %h/.local/bin/spotify_lyrics_daemon.py
 Restart=always
 
 [Install]
