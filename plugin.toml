@@ -1,11 +1,11 @@
-id = "noctalia/spotify-lyrics"
+id = "goatnath/spotify-lyrics"
 name = "Spotify Lyrics"
-version = "1.2.0"
-min_noctalia = "5.0.0"
+version = "1.2.1"
+plugin_api = 3
 author = "goatnath"
 license = "MIT"
-dependencies = []
-tags = ["music", "lyrics"]
+dependencies = ["playerctl", "python3", "syncedlyrics"]
+tags = ["music"]
 icon = "music"
 description = "Time-synced lyrics panel linked to the media widget."
 
