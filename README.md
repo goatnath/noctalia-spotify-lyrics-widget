@@ -1,5 +1,7 @@
 # Noctalia Synced Lyrics Plugin
 
+[![CI](https://github.com/goatnath/noctalia-spotify-lyrics-widget/actions/workflows/ci.yml/badge.svg)](https://github.com/goatnath/noctalia-spotify-lyrics-widget/actions/workflows/ci.yml)
+
 A seamless, time-synced scrolling lyrics panel for the Noctalia desktop shell. It integrates directly into your Noctalia bar and displays a beautifully formatted, auto-scrolling lyrics card when you click the `♫` icon.
 
 ## Why it's great
